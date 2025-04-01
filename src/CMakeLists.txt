@@ -1,12 +1,15 @@
-﻿# CMakeList.txt : CMake project for BarinFuck, include source and define
-# project specific logic here.
-#
+﻿cmake_minimum_required (VERSION 3.8)
+set(CXX_STANDARD 17)
 
-# Add source to this project's executable.
-add_executable (BarinFuck "main.cpp")
+set( EXEC_FILES
+	"main.cpp"
+	"BrainFuck.h"
+	"BrainFuck.cpp"
+	"Memory.h"
+	"Memory.cpp"
+)
+add_executable (BarinFuck ${EXEC_FILES})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET BarinFuck PROPERTY CXX_STANDARD 20)
 endif()
-
-# TODO: Add tests and install targets if needed.
