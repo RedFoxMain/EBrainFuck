@@ -1,4 +1,4 @@
-# BarinFuck
+# BrainFuck
 | OP   | Action |
 |-----:|-----------|
 |     +| Increase the byte at the current memory cell |
