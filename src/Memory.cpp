@@ -3,8 +3,7 @@
 
 Memory::Memory() : memory_(new int[MEM_SIZE]{}), ptr_(memory_) {}
 Memory::~Memory() {
-	//delete[] memory_;
-	//delete ptr_;
+	delete[] memory_;
 }
 
 // Increment byte at current pointer
@@ -21,14 +20,14 @@ void Memory::decByte() {
 
 // Move pointer right
 void Memory::incPtr() {
-	if (ptr_ < memory_ + MEM_SIZE) ++ptr_;
-	else throw std::runtime_error("Ptr out of range!");
+	++ptr_;
+	if (ptr_ > memory_ + MEM_SIZE) throw std::runtime_error("Ptr out of range!");
 }
 
 // Move pointer left
 void Memory::decPtr() {
-	if (ptr_ > memory_) --ptr_;
-	else throw std::runtime_error("Ptr can not be negative!");
+	--ptr_;
+	if (ptr_ < memory_) throw std::runtime_error("Ptr can not be negative!");
 }
 
 // Set value to current pointer
@@ -43,6 +42,7 @@ void Memory::copyFromStack() {
 
 // Pop value from top of the stack
 void Memory::popFromStack() {
+	if(stack_.empty()) throw std::runtime_error("Stack is empty!");
 	stack_.pop_back();
 }
 

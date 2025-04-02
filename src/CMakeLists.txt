@@ -8,8 +8,8 @@ set( EXEC_FILES
 	"Memory.h"
 	"Memory.cpp"
 )
-add_executable (BarinFuck ${EXEC_FILES})
+add_executable (${PROJECT_NAME} ${EXEC_FILES})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET BarinFuck PROPERTY CXX_STANDARD 20)
+  set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 endif()
