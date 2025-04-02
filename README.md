@@ -12,7 +12,7 @@ EBrainFuck - Extended BrainFuck Interpreter have two mods read code from file or
 |     -| Decrease the byte at the current memory cell |
 |     >| Move ptr to right |
 |     <| Move ptr to left |
-|     [| IF byte at the current mem cell is zero move to ] |
+|     [| If byte at the current mem cell is zero move to ] |
 |     ]| If byte at the current mem cell is non zero move to [ |
 |     .| Print current mem cell value as char |
 |     ,| Input char |
