@@ -3,7 +3,7 @@
 EBrainFuck - Extended BrainFuck Interpreter have two mods read code from file or interactive.<br>
 <b>BrainFuck</b> <i><file|inter> [-m]</i><br>
 <b>file</b> - BF wil read code from file<br>
-<b>inter</b> - interactive mode<br>
+<b>inter</b> - interactive mode you can exit intractive mod using <b><i>ex</i></b><br>
 <b>-m</b> - optional flag for printing memory and stack<br>
 
 | OP   | Action |
