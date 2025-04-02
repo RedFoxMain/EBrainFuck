@@ -1,6 +1,6 @@
 # EBrainFuck
 
-EBrainFuck - Extended BrainFuck Interpreter have two mods read code from file or interactive.
+EBrainFuck - Extended BrainFuck Interpreter have two mods read code from file or interactive.<br>
 BrainFuck <file|inter> [-m]
 file - BF wil read code from file
 inter - interactive mode
