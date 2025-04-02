@@ -1,4 +1,11 @@
-# BrainFuck
+# EBrainFuck
+
+EBrainFuck - Extended BrainFuck Interpreter have two mods read code from file or interactive.
+BrainFuck <file|inter> [-m]
+file - BF wil read code from file
+inter - interactive mode
+-m - optional flag for printing memory and stack
+
 | OP   | Action |
 |-----:|-----------|
 |     +| Increase the byte at the current memory cell |
