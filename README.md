@@ -14,3 +14,5 @@
 |     #| Copy value of current mem cell to top of the stack    |
 |     $| Put value from top of the stack to current mem cell       |
 |     !| Pop value from stack|
+
+Operation : ; # $ - i got from mobile app
