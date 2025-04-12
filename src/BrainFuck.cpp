@@ -1,10 +1,12 @@
 #include "BrainFuck.h"
+#include "Optimizer.h"
 
 BrainFuck::BrainFuck() {}
 
 BrainFuck::~BrainFuck() {}
 
 void BrainFuck::eval(const std::string& code) {
+	vector_of_pairs vec = Optimizer::getBraces(code);
 	for (size_t i = 0; i < code.size(); ++i) {
 		if (std::isspace(code[i])) continue;
 		if (code[i] == '#') memory_.pushToStack();
@@ -36,21 +38,11 @@ void BrainFuck::eval(const std::string& code) {
 		if (code[i] == '<') memory_.decPtr();
 		if (code[i] == '[') {
 			if (memory_.currVal() == 0) {
-				int brc = 1;
-				while (brc > 0 && i < code.size()) {
-					char curr_char = code[++i];
-					if (curr_char == '[') brc++;
-					if (curr_char == ']') brc--;
-				}
+				i = Optimizer::findCloseBrace(vec, i);
 			}
 		} else if (code[i] == ']') {
 			if (memory_.currVal() != 0) {
-				int brc = 1;
-				while (brc > 0 && i > 0) {
-					char curr_char = code[--i];
-					if (curr_char == '[') brc--;
-					if (curr_char == ']') brc++;
-				}
+				i = Optimizer::findOpenBrace(vec, i);
 			}
 		}
 	}

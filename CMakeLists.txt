@@ -1,4 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.8)
+set(CXX_STANDARD 17)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -8,5 +9,13 @@ endif()
 
 project ("BrainFuck")
 
-# Include sub-projects.
-add_subdirectory ("src")
+set( EXEC_FILES
+	"src/main.cpp"
+	"src/BrainFuck.h"
+	"src/BrainFuck.cpp"
+	"src/Memory.h"
+	"src/Memory.cpp"
+	"src/Optimizer.h"
+	"src/Optimizer.cpp"
+)
+add_executable (${PROJECT_NAME} ${EXEC_FILES})

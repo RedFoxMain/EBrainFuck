@@ -1,5 +1,4 @@
 #include "Memory.h"
-#pragma once
 
 Memory::Memory() : memory_(new int[MEM_SIZE]{}), ptr_(memory_) {}
 Memory::~Memory() {
