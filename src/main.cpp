@@ -20,7 +20,6 @@ int main(int argc, char* argv[]){
 					bf.printMem();
 					bf.printStack();
 				}
-				bf.reset();
 				std::cout << ">> "; std::getline(std::cin, code);
 			}
 		}else { // Code from file

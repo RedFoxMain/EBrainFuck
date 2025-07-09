@@ -1,6 +1,6 @@
 #include "Memory.h"
 
-Memory::Memory() : memory_(new int[MEM_SIZE]{}), ptr_(memory_) {}
+Memory::Memory() : memory_(new uint8_t[MEM_SIZE]{}), ptr_(memory_) {}
 Memory::~Memory() {
 	delete[] memory_;
 }
@@ -8,13 +8,11 @@ Memory::~Memory() {
 // Increment byte at current pointer
 void Memory::incByte() {
 	++(*ptr_);
-	if (*ptr_ > 255) *ptr_ = 0;
 }
 
 // Decrement byte at current pointer
 void Memory::decByte() {
 	--(*ptr_);
-	if (*ptr_ < 0) *ptr_ = 255;
 }
 
 // Move pointer right
@@ -30,7 +28,7 @@ void Memory::decPtr() {
 }
 
 // Set value to current pointer
-void Memory::memWrite(int val) {
+void Memory::memWrite(uint8_t val) {
 	*ptr_ = val;
 }
 
@@ -63,11 +61,11 @@ int Memory::currVal() {
 }
 
 // Return memory
-int* Memory::getMem() {
+uint8_t* Memory::getMem() {
 	return memory_;
 }
 
 // Return stack
-std::vector<int> Memory::getStack() {
+std::vector<uint8_t> Memory::getStack() {
 	return stack_;
 }

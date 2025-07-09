@@ -16,7 +16,7 @@ void BrainFuck::eval(const std::string& code) {
 		if (code[i] == '-') memory_.decByte();
 		if (code[i] == '.') {
 			in_output = true;
-			std::cout << (char)memory_.currVal();
+			std::cout << static_cast<char>(memory_.currVal());
 		}
 		if (code[i] == ':') std::cout << memory_.currVal();
 		if (code[i] == ',') {
@@ -27,11 +27,10 @@ void BrainFuck::eval(const std::string& code) {
 			memory_.memWrite(symbol);
 		}
 		if (code[i] == ';') {
-			int value;
+			uint8_t value;
 			if (in_output) std::cout << "\n";
 			std::cout << "In: "; std::cin >> value;
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			if (value < 0 || value > 255) throw std::runtime_error("Value must be represented by a byte!");
 			memory_.memWrite(value);
 		}
 		if (code[i] == '>') memory_.incPtr();
@@ -67,17 +66,17 @@ void BrainFuck::reset() {
 
 // Print mem
 void BrainFuck::printMem() {
-	int* mem = memory_.getMem();
+	uint8_t* mem = memory_.getMem();
 	if (in_output) std::cout << "\n";
-	for (size_t i = 0; i < MEM_SIZE; ++i) std::cout << mem[i] << " ";
+	for (size_t i = 0; i < MEM_SIZE; ++i) std::cout << static_cast<int>(mem[i]) << " ";
 }
 
 // Print stack
 void BrainFuck::printStack() {
 	std::cout << "\n";
-	std::vector<int> st = memory_.getStack();
+	std::vector<uint8_t> st = memory_.getStack();
 	if (!st.empty()) {
-		for (const int& el : st) std::cout << el << " ";
+		for (const uint8_t& el : st) std::cout << static_cast<int>(el) << " ";
 		std::cout << "\n";
 	} else std::cout << "Stack < is empty >\n";
 }
